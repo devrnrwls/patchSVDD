@@ -148,10 +148,10 @@ class PositionDataset(Dataset):
         patch2 += rgbshift2
 
         # additive noise
-        # noise1 = np.random.normal(scale=0.02, size=(3, K, K))
+        noise1 = np.random.normal(scale=0.02, size=(3, K, K))
         noise2 = np.random.normal(scale=0.02, size=(3, K, K))
 
-        # patch1 += noise1
+        patch1 += noise1
         patch2 += noise2
 
         return patch1, patch2, pos
