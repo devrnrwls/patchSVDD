@@ -141,10 +141,10 @@ class PositionDataset(Dataset):
         patch2 = crop_image_CHW(image, p2, K).copy()
 
         # perturb RGB
-        # rgbshift1 = np.random.normal(scale=0.02, size=(3, 1, 1))
+        rgbshift1 = np.random.normal(scale=0.02, size=(3, 1, 1))
         rgbshift2 = np.random.normal(scale=0.02, size=(3, 1, 1))
 
-        # patch1 += rgbshift1
+        patch1 += rgbshift1
         patch2 += rgbshift2
 
         # additive noise

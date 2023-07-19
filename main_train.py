@@ -38,9 +38,12 @@ def train():
         opt = torch.optim.Adam(params=params, lr=lr)
 
     with task('Datasets'):
-        # train_x = mvtecad.get_x_standardized(obj, mode='train')
-        train_x = mvtecad.get_x(obj, mode='train')
-        train_x = train_x.astype(np.float32)
+        train_x = mvtecad.get_x_standardized(obj, mode='train')
+
+        #학습 데이터 이미지 원본 그대로 사용
+        # train_x = mvtecad.get_x(obj, mode='train')
+        # train_x = train_x.astype(np.float32)
+
         train_x = NHWC2NCHW(train_x)
 
         rep = 100
