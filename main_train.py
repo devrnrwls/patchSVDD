@@ -68,8 +68,11 @@ def train():
                 d = to_device(d, 'cuda', non_blocking=True)
                 opt.zero_grad()
 
+                # enc과 enc.enc의 차이
+                ##enc의 forward경우 forward_hier(EncoderDeep 포함)를 수행 후에 2개의 conv가 더있고
+                ##enc.enc의 forward의 경우 forward_hier를 거치지 않고 EncoderDeep만 수행.
                 loss_pos_64 = PositionClassifier.infer(cls_64, enc, d['pos_64'])
-                loss_pos_32 = PositionClassifier.infer(cls_32, enc.enc, d['pos_32']) #sudopop: enc.enc make "k=64 -> k=32", cls_32 &cls_64 i think same function
+                loss_pos_32 = PositionClassifier.infer(cls_32, enc.enc, d['pos_32'])
 
                 loss_svdd_64 = SVDD_Dataset.infer(enc, d['svdd_64'])
                 loss_svdd_32 = SVDD_Dataset.infer(enc.enc, d['svdd_32'])
