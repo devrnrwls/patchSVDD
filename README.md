@@ -20,7 +20,7 @@ The code runs on python 3.7, pytorch 1.3.1, and torchvision 0.4.2.
 
 # Code examples
 
-#### Step 1. 데이터셋 PATH 설정 Set the *DATASET_PATH* variable.
+#### Step 1. 데이터셋 PATH 설정 (Set the *DATASET_PATH* variable.)
 
 Set the [DATASET_PATH](codes/mvtecad.py#L008) to the root path of the downloaded MVTec AD dataset.
 
